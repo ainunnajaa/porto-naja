@@ -176,81 +176,7 @@
         </div>
     </div>
 
-    <script>
-        // JAVASCRIPT LOGIC
-        function processVideo() {
-            const url = document.getElementById('urlInput').value;
-            const loader = document.getElementById('loader');
-            const resultArea = document.getElementById('resultArea');
-            const errorMsg = document.getElementById('errorMsg');
-            
-            // Reset Tampilan
-            resultArea.style.display = 'none';
-            errorMsg.style.display = 'none';
-
-            // Validasi Sederhana
-            if (!url || !url.includes('http')) {
-                errorMsg.style.display = 'block';
-                return;
-            }
-
-            // Tampilkan Loading
-            loader.style.display = 'block';
-
-            // --- SIMULASI API CALL ---
-            // Di dunia nyata, di sini Anda harus memanggil API Backend Anda
-            // Contoh: fetch('https://api-anda.com/download?url=' + url)...
-            
-            setTimeout(() => {
-                loader.style.display = 'none';
-                
-                // Ini data simulasi (Mock Data)
-                // Nanti data ini harus diganti dengan respon asli dari API/Server
-                const mockData = {
-                    title: "Video Tutorial Programming Keren.mp4",
-                    thumbnail: "https://via.placeholder.com/320x180.png?text=Video+Thumbnail",
-                    formats: [
-                        { quality: "1080p (HD)", size: "120 MB", link: "#" },
-                        { quality: "720p", size: "65 MB", link: "#" },
-                        { quality: "360p", size: "20 MB", link: "#" },
-                        { quality: "MP3 (Audio)", size: "5 MB", link: "#" }
-                    ]
-                };
-
-                displayResult(mockData);
-
-            }, 1500); // Simulasi loading 1.5 detik
-        }
-
-        function displayResult(data) {
-            const resultArea = document.getElementById('resultArea');
-            const downloadList = document.getElementById('downloadList');
-            
-            // Set Data ke UI
-            document.getElementById('videoTitle').innerText = data.title;
-            document.getElementById('thumbImg').src = data.thumbnail;
-            
-            // Bersihkan list lama
-            downloadList.innerHTML = '';
-
-            // Loop untuk membuat tombol download
-            data.formats.forEach(format => {
-                const html = `
-                    <div class="download-item">
-                        <div>
-                            <span class="quality-badge">${format.quality}</span>
-                            <span style="font-size: 0.8rem; color: #666; margin-left: 8px;">${format.size}</span>
-                        </div>
-                        <a href="${format.link}" class="btn-download" target="_blank">Unduh</a>
-                    </div>
-                `;
-                downloadList.innerHTML += html;
-            });
-
-            // Tampilkan hasil
-            resultArea.style.display = 'block';
-        }
-    </script>
+  
         <h2 style="padding-left: 47px;">Unggahan Ceritaku</h2>
     
     <div class="row">
@@ -369,5 +295,81 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
+      <script>
+        // JAVASCRIPT LOGIC
+        function processVideo() {
+            const url = document.getElementById('urlInput').value;
+            const loader = document.getElementById('loader');
+            const resultArea = document.getElementById('resultArea');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // Reset Tampilan
+            resultArea.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            // Validasi Sederhana
+            if (!url || !url.includes('http')) {
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            // Tampilkan Loading
+            loader.style.display = 'block';
+
+            // --- SIMULASI API CALL ---
+            // Di dunia nyata, di sini Anda harus memanggil API Backend Anda
+            // Contoh: fetch('https://api-anda.com/download?url=' + url)...
+            
+            setTimeout(() => {
+                loader.style.display = 'none';
+                
+                // Ini data simulasi (Mock Data)
+                // Nanti data ini harus diganti dengan respon asli dari API/Server
+                const mockData = {
+                    title: "Video Tutorial Programming Keren.mp4",
+                    thumbnail: "https://via.placeholder.com/320x180.png?text=Video+Thumbnail",
+                    formats: [
+                        { quality: "1080p (HD)", size: "120 MB", link: "#" },
+                        { quality: "720p", size: "65 MB", link: "#" },
+                        { quality: "360p", size: "20 MB", link: "#" },
+                        { quality: "MP3 (Audio)", size: "5 MB", link: "#" }
+                    ]
+                };
+
+                displayResult(mockData);
+
+            }, 1500); // Simulasi loading 1.5 detik
+        }
+
+        function displayResult(data) {
+            const resultArea = document.getElementById('resultArea');
+            const downloadList = document.getElementById('downloadList');
+            
+            // Set Data ke UI
+            document.getElementById('videoTitle').innerText = data.title;
+            document.getElementById('thumbImg').src = data.thumbnail;
+            
+            // Bersihkan list lama
+            downloadList.innerHTML = '';
+
+            // Loop untuk membuat tombol download
+            data.formats.forEach(format => {
+                const html = `
+                    <div class="download-item">
+                        <div>
+                            <span class="quality-badge">${format.quality}</span>
+                            <span style="font-size: 0.8rem; color: #666; margin-left: 8px;">${format.size}</span>
+                        </div>
+                        <a href="${format.link}" class="btn-download" target="_blank">Unduh</a>
+                    </div>
+                `;
+                downloadList.innerHTML += html;
+            });
+
+            // Tampilkan hasil
+            resultArea.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
